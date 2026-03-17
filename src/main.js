@@ -29,13 +29,17 @@ function calculateBonusByProfit(index, total, seller) {
 
   let bonusPercent;
   if (index === 0) {
+    // Первый место
     bonusPercent = 15;
   } else if (index < 2) {
+    // Второй или третий место
     bonusPercent = 10;
-  } else if (index < total - 1) {
-    bonusPercent = 5;
-  } else {
+  } else if (index === total - 1) {
+    // Последнее место
     bonusPercent = 0;
+  } else {
+    // Все остальные
+    bonusPercent = 5;
   }
 
   return profit * (bonusPercent / 100);
