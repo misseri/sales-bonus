@@ -9,7 +9,6 @@ function calculateSimpleRevenue(purchase, _product) {
   // purchase — это одна из записей в поле items из чека в data.purchase_records
   // _product — это продукт из коллекции data.products
   const { discount, sale_price, quantity } = purchase;
-  const { purchase_price } = _product;
 
   let revenue = sale_price * quantity * (1 - discount / 100);
 
@@ -31,7 +30,7 @@ function calculateBonusByProfit(index, total, seller) {
   if (index === 0) {
     // Первый место
     bonusPercent = 15;
-  } else if (index < 2) {
+  } else if (index < 3) {
     // Второй или третий место
     bonusPercent = 10;
   } else if (index === total - 1) {
